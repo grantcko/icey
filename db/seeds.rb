@@ -1,7 +1,7 @@
 puts 'Cleaning the DB..'
+Rental.destroy_all
 Jewelry.destroy_all
 User.destroy_all
-Rental.destroy_all
 
 grant = User.create!(
   name: "Grant",
