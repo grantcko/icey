@@ -49,7 +49,6 @@ jew5 = Jewelry.create!(
 
 puts "... created #{Jewelry.count} jewelries."
 
-
 Rental.create!(
   user: grant,
   jewelry: jew2,
