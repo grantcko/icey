@@ -10,7 +10,7 @@ Jewelry.destroy_all
 User.destroy_all
 
 u = User.create!(name: "Grant", email: "grant@gmail.com", password: "123123")
-
+ 
 Jewelry.create!(
   user: u,
   name: 'Justice Scale Chain',
