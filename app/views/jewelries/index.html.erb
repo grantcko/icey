@@ -1,12 +1,18 @@
 <div class="container mt-3">
-  <h1>Jewelries Lists</h1>
-  <ul>
+  <h1 class="text-center p-3"><strong>Jewelries</strong></h1>
+  <div class= "cards">
     <% @jewelries.each do |jewelry| %>
-      <li>
-      <p> Name: <%= link_to jewelry.name, jewelry_path(jewelry), class: 'text-primary text-decoration-none'%></p>
-      <p> Detail: <%= jewelry.detail %></p>
-      <p> Price: <%= jewelry.price %></p>
-      </li>
+      <div class="card card-trip" style="width: 18rem;">
+        <%= image_tag "https://source.unsplash.com/featured?jewelry&#{rand(500)}" %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= link_to jewelry.name, jewelry_path(jewelry), class: 'text-black text-decoration-none'%></h2>
+            <p><%= jewelry.detail %></p>
+          </div>
+          <h2 class="card-trip-pricing">¥<%= jewelry.price %></h2>
+          <img src="https://avatars.githubusercontent.com/u/121933082?v=4" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
     <% end %>
-  </ul >
+  </div>
 </div>

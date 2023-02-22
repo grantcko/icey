@@ -1,0 +1,31 @@
+<div class="container center-container" id="jewelries">
+  <div class="d-flex">
+    <!-- Gallery -->
+    <div class="row">
+      <div class="card img-gallery-one" style="width: 18rem;">
+        <img class="img-gallery" src="https://source.unsplash.com/featured?wristwatch&<%= rand(100) %>" class="card-img-top border border-white"></span>
+        <div class="card-body border border-white">
+          <strong> <h2 class="card-title"><%= @jewelry.name %></h2> </strong>
+          <p class="card-text"><%= @jewelry.detail %></p>
+          <%= simple_form_for [@jewelry, @rental] do |f| %>
+            <%= f.input :start_date, html5: true %>
+            <%= f.input :end_date, html5: true %>
+            <%= f.submit 'Rent', class: "btn btn-light"%>
+          <% end %>
+        </div>
+      </div>
+      </div>
+    <div class="img-gallery">
+      <img
+        src="https://source.unsplash.com/featured?wristwatch&<%= rand(100) %>"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Boat on Calm Water"
+      />
+
+      <img
+        src="https://source.unsplash.com/featured?wristwatch&<%= rand(100) %>"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Wintry Mountain Landscape"
+      />
+    </div>
+</div>

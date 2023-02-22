@@ -1,0 +1,19 @@
+<div class="container">
+  <h1 class="text-center mt-3"><strong>Your Rentals</strong></h1>
+  <div class="row">
+  <% @rentals.each do |rental| %>
+    <div class="col-6 w-50 mt-3">
+      <div class="card-product">
+        <%= image_tag "https://source.unsplash.com/featured?wristwatch&#{rand(1000)}" %>
+        <div class="card-product-infos">
+          <h2><%= rental.jewelry.name %></h2>
+          <p>STATUS: <%= rental.status%></p>
+          <p><em>OWNER: <%= rental.jewelry.user.name %></em></p>
+          <p><strong>Rented on: </strong><%= rental.start_date %></p>
+          <p><strong>Return on: </strong><%= rental.end_date %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
