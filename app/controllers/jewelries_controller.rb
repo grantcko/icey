@@ -7,4 +7,9 @@ class JewelriesController < ApplicationController
     @jewelry = Jewelry.new
     authorize @jewelry
   end
+
+  def show
+    @jewelry = Jewelry.find(params[:id])
+    authorize @jewelry
+  end
 end
