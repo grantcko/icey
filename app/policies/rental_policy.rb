@@ -5,4 +5,8 @@ class RentalPolicy < ApplicationPolicy
       scope.all
     end
   end
+  
+  def create?
+    record.jewelry.user != user
+  end
 end
