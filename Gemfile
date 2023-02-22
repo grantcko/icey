@@ -77,3 +77,6 @@ group :test do
 end
 
 gem "devise"
+
+  # Install authorization
+gem "pundit"
