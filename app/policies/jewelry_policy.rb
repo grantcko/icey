@@ -7,10 +7,14 @@ class JewelryPolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    create?
   end
 
   def show?
+    true
+  end
+
+  def create?
     true
   end
 end

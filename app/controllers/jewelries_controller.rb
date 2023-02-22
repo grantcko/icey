@@ -12,4 +12,20 @@ class JewelriesController < ApplicationController
     @jewelry = Jewelry.find(params[:id])
     authorize @jewelry
   end
+
+  def create
+    @jewelry = Jewelry.new(jewelry_params)
+    authorize @jewelry
+    if @jewelry.save
+      redirect_to jewelry_path(@jewelry)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def jewelry_params
+    params.require(:jewelry).permit(:name, :detail, :price)
+  end
 end
