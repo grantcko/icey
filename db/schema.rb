@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_062302) do
 
   create_table "rentals", force: :cascade do |t|
     t.integer "status", default: 0
-    t.date "start_date"
+     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
