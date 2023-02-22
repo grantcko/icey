@@ -1,0 +1,12 @@
+<div class="container mt-3">
+  <h1>Jewelries Lists</h1>
+  <ul>
+    <% @jewelries.each do |jewelry| %>
+      <li>
+      <p> Name: <%= link_to jewelry.name, jewelry_path(jewelry), class: 'text-primary text-decoration-none'%></p>
+      <p> Detail: <%= jewelry.detail %></p>
+      <p> Price: <%= jewelry.price %></p>
+      </li>
+    <% end %>
+  </ul >
+</div>
