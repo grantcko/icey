@@ -1,15 +1,18 @@
 <div class="container">
+  <div class="row">
   <% @rentals.each do |rental| %>
-    <div class="col w-50 mt-3">
+    <div class="col-3 w-50 mt-3">
       <div class="card-product">
-        <img src="https://cdn.shopify.com/s/files/1/0009/0724/7677/products/Jay-Z-style-necklace-chain-25mm-cuban-link-1_1932x.jpg?v=1576115600" />
+        <%= image_tag "https://source.unsplash.com/featured?wristwatch&#{rand(1000)}" %>
         <div class="card-product-infos">
           <h2><%= rental.jewelry.name %></h2>
-          <p><em>STATUS: <%= rental.status %></em></p>
+          <p>STATUS: <%= rental.status%></p>
+          <p><em>OWNER: <%= rental.jewelry.user.name %></em></p>
           <p><strong>Rented on: </strong><%= rental.start_date %></p>
           <p><strong>Return on: </strong><%= rental.end_date %></p>
         </div>
       </div>
     </div>
   <% end %>
+  </div>
 </div>
