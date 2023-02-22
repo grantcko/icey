@@ -1,11 +1,15 @@
-<% @rentals.each do |rental| %>
-  <div class="container w-50 mt-3">
-    <div class="card-product">
-      <img src="https://cdn.shopify.com/s/files/1/0009/0724/7677/products/Jay-Z-style-necklace-chain-25mm-cuban-link-1_1932x.jpg?v=1576115600" />
-      <div class="card-product-infos">
-        <h2><%= rental.jewelry.name %></h2>
-        <p><em>STATUS: <%= rental.status %></em>    <strong>Rented on: </strong> <%= rental.start_date %>  <strong>Return on: </strong><%= rental.end_date %></p>
+<div class="container">
+  <% @rentals.each do |rental| %>
+    <div class="col w-50 mt-3">
+      <div class="card-product">
+        <img src="https://cdn.shopify.com/s/files/1/0009/0724/7677/products/Jay-Z-style-necklace-chain-25mm-cuban-link-1_1932x.jpg?v=1576115600" />
+        <div class="card-product-infos">
+          <h2><%= rental.jewelry.name %></h2>
+          <p><em>STATUS: <%= rental.status %></em></p>
+          <p><strong>Rented on: </strong><%= rental.start_date %></p>
+          <p><strong>Return on: </strong><%= rental.end_date %></p>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
