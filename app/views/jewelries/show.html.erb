@@ -1,1 +1,12 @@
-<h1>jewelries</h1>
+
+<link rel="stylesheet" href="css/card.css">
+
+<div class="card" style="width: 18rem;">
+  <img src="https://www.icehiphop.com/wp-content/uploads/2022/06/Custom-Baguette-Script-Name-Necklace-430x430.webp" class="card-img-top border border-white"></span>
+
+  <div class="card-body border border-white">
+    <h5 class="card-title"><%= @jewelry.name %></h5>
+    <p class="card-text"><%= @jewelry.detail %></p>
+    <%= link_to "Rent", rentals_path, class: "btn btn-warning" %>
+  </div>
+</div>
