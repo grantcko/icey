@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="css/card.css">
+<div class="card" style="width: 18rem;">
+  <%= cl_image_tag @jewelry.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top border border-white" %>
+  <div class="card-body border border-white">
+    <strong>
+      <h2 class="card-title"><%= @jewelry.name %></h2>
+    </strong>
+    <p class="card-text"><%= @jewelry.detail %></p>
+    <%= link_to  "Rent", rentals_path, class: "btn btn-light" %>
+  </div>
+</div>

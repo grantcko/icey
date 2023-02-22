@@ -3,18 +3,33 @@ puts 'Cleaning the DB..'
 Rental.destroy_all
 Jewelry.destroy_all
 User.destroy_all
+photo_array = ["https://res.cloudinary.com/dn2mnawil/image/upload/v1677032650/Icey%20Bling-Bling/icey027_k0xkxl.jpg"]
 
-file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
-article = Article.new(title: "NES", body: "A great console")
-article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-article.save
+def url_file
 
-
+end
 grant = User.create!(
   name: "Grant",
   email: "grant@gmail.com",
   password: "123123"
 )
+5.times do
+file = URI.open(photo_array.sample)
+jewelry = Jewelry.new(name: "faker", detail: "A great console", price: 5000)
+jewelry.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+jewelry.user = grant
+jewelry.save
+end
+
+
+# url = photo_array.sample
+# type = url.split('.').last
+# file = URI.open(url)
+# jewelry.photo.attach(io: file, filename:"faker.#{type}", content_type: "image/#{type}")
+
+# jewelry.save
+
+
 taka = User.create!(
   name: "Taka",
   email: "taka@gmail.com",
