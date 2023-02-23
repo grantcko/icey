@@ -49,16 +49,6 @@ tan = User.create!(
   )
 
 anik = User.create!(
-name: "anik",
-email: "anik@gmail.com",
-password: "123123"
-)
-tan = User.create!(
-  name: "Tan",
-  email: "tan@gmail.com",
-  password: "123123"
-)
-anik = User.create!(
   name: "Anik",
   email: "anik@gmail.com",
   password: "123123"
@@ -66,8 +56,8 @@ anik = User.create!(
 
 puts "... created #{User.count} users."
 
-
 jewelries = ['Watch', 'Gold Watch', 'Diamond Necklace', 'Chain', 'Small Chain', 'Big Chain', 'Ring', 'Necklace', 'Bracelet']
+
 12.times do
   file = URI.open(photo_array.sample)
   jewelry = Jewelry.new(name: Faker::Cannabis.strain.split.first + " " + jewelries.sample, detail: "A great console", price: 5000)
@@ -95,7 +85,11 @@ end
 
 6.times do
   file = URI.open(photo_array.sample)
-  jewelry = Jewelry.new(name: Faker::Cannabis.strain.split.first + " " + jewelries.sample, detail: "A great console", price: 5000)
+  jewelry = Jewelry.new(
+    name: "#{Faker::Cannabis.strain.split.first} #{jewelries.sample}",
+     detail: "A great console",
+     price: 5000
+  )
   jewelry.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   jewelry.user = taka
   jewelry.save
@@ -110,7 +104,11 @@ end
 
 6.times do
   file = URI.open(photo_array.sample)
-  jewelry = Jewelry.new(name: Faker::Cannabis.strain.split.first + " " + jewelries.sample, detail: "A great console", price: 5000)
+  jewelry = Jewelry.new(
+    name: "#{Faker::Cannabis.strain.split.first} #{jewelries.sample}",
+    detail: "A great console",
+    price: 5000
+  )
   jewelry.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   jewelry.user = anik
   jewelry.save
@@ -123,13 +121,19 @@ end
   )
 end
 
-
 6.times do
   file = URI.open(photo_array.sample)
-  jewelry = Jewelry.new(name: Faker::Cannabis.strain.split.first + " " + jewelries.sample, detail: "A great console", price: 5000)
+
+  jewelry = Jewelry.new(
+    name: "#{Faker::Cannabis.strain.split.first} #{jewelries.sample}",
+    detail: "A great console",
+    price: 5000
+  )
+
   jewelry.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   jewelry.user = tan
   jewelry.save
+
   Rental.create!(
     user: [taka, grant, anik].sample,
     jewelry: Jewelry.last,
