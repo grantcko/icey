@@ -81,3 +81,4 @@ gem "cloudinary"
 
   # Install authorization
 gem "pundit"
+gem 'faker'

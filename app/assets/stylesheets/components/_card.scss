@@ -4,14 +4,25 @@ color: white;
 }
 
 .btn-light{
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
-.img {
-  border: 5px solid #ffffff;
-  border-radius: 8px;
-  padding: 5px;
-  width: 150px;
+.img-gallery-one img {
+  height: 260px;
+  width: 260px;
+  object-fit: cover;
+}
+
+.img-gallery img {
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card-trip {
