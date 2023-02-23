@@ -1,19 +1,24 @@
 <div class="container">
   <h1 class="text-center mt-3"><strong>Your Rentals</strong></h1>
   <div class="row">
-  <% @rentals.each do |rental| %>
-    <div class="col-6 w-50 mt-3">
-      <div class="card-product">
-        <%= image_tag "https://source.unsplash.com/featured?wristwatch&#{rand(1000)}" %>
-        <div class="card-product-infos">
-          <h2><%= rental.jewelry.name %></h2>
-          <p>STATUS: <%= rental.status%></p>
-          <p><em>OWNER: <%= rental.jewelry.user.name %></em></p>
-          <p><strong>Rented on: </strong><%= rental.start_date %></p>
-          <p><strong>Return on: </strong><%= rental.end_date %></p>
+    <% @rentals.each do |rental| %>
+      <div class="col-6 mt-3">
+        <div class="card-product">
+          <% if rental.jewelry.photo.attached? %>
+            <%= cl_image_tag(rental.jewelry.photo.key) %>
+          <% else %>
+            <%= image_tag('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU') %>
+          <% end %>
+          <div class="card-product-infos">
+            <h2><%= rental.jewelry.name %></h2>
+            <p>STATUS: <%= rental.status%></p>
+            <p><em>OWNER: <%= rental.jewelry.user.name %></em></p>
+            <p><strong>Rented on: </strong><%= rental.start_date %></p>
+            <p><strong>Return on: </strong><%= rental.end_date %></p>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
   </div>
+</div>
 </div>

@@ -19,7 +19,13 @@ photo_array = [
 "https://res.cloudinary.com/dn2mnawil/image/upload/v1677032604/Icey%20Bling-Bling/icey017_ocukyi.jpg",
 "https://res.cloudinary.com/dn2mnawil/image/upload/v1677032604/Icey%20Bling-Bling/icey019_gxt1tu.jpg",
 "https://res.cloudinary.com/dn2mnawil/image/upload/v1677032629/Icey%20Bling-Bling/icey002_hxic1s.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032650/Icey%20Bling-Bling/icey025_yifybo.jpg"
+"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032650/Icey%20Bling-Bling/icey025_yifybo.jpg",
+"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032668/Icey%20Bling-Bling/icey031_sup4nm.jpg",
+"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032668/Icey%20Bling-Bling/icey032_eway20.jpg",
+"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032668/Icey%20Bling-Bling/icey030_ggjvo4.jpg",
+"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032650/Icey%20Bling-Bling/icey023_fsmpde.jpg",
+"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032650/Icey%20Bling-Bling/icey024_sdiv4x.jpg",
+"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032603/Icey%20Bling-Bling/icey007_inamrs.jpg"
 ]
 
 def url_file
@@ -47,6 +53,16 @@ name: "anik",
 email: "anik@gmail.com",
 password: "123123"
 )
+tan = User.create!(
+  name: "Tan",
+  email: "tan@gmail.com",
+  password: "123123"
+)
+anik = User.create!(
+  name: "Anik",
+  email: "anik@gmail.com",
+  password: "123123"
+)
 
 puts "... created #{User.count} users."
 
@@ -61,17 +77,6 @@ jewelries = ['Watch', 'Gold Watch', 'Diamond Necklace', 'Chain', 'Small Chain', 
 end
 
 puts "... created #{Jewelry.count} jewelries."
-
-
-
-
-# url = photo_array.sample
-# type = url.split('.').last
-# file = URI.open(url)
-# jewelry.photo.attach(io: file, filename:"faker.#{type}", content_type: "image/#{type}")
-
-# jewelry.save
-
 
 6.times do
   file = URI.open(photo_array.sample)
