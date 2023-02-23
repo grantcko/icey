@@ -1,5 +1,14 @@
 <div class="container mt-3">
   <h1 class="text-center p-3"><strong>Jewelries</strong></h1>
+
+<%= form_with url: jewelries_path, method: :get, class: "d-flex my-3" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a Jewelry"
+  %>
+  <%= submit_tag "Search", class: "btn btn-dark" %>
+<% end %>
   <div class= "cards">
     <% @jewelries.each do |jewelry| %>
       <div class="card card-trip" style="width: 18rem; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
