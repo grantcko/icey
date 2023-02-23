@@ -1,6 +1,11 @@
 class JewelriesController < ApplicationController
   def index
     @jewelries = policy_scope(Jewelry)
+    if params[:query].present?
+      @jewelries = Jewelry.search_by_name_and_detail(params[:query])
+    else
+      @jewelries = Jewelry.all
+    end
   end
 
   def new
