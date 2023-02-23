@@ -11,4 +11,7 @@ class RentalPolicy < ApplicationPolicy
     record.jewelry.user != user
   end
 
+  def update?
+    true
+  end
 end
