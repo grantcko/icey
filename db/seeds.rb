@@ -62,14 +62,14 @@ puts "... created #{Jewelry.count} jewelries."
 Rental.create!(
   user: tan,
   jewelry: jew2,
-  status: 2,
+  status: 0,
   start_date: Date.today,
   end_date: Date.today + 20
 )
 Rental.create!(
   user: tan,
   jewelry: jew3,
-  status: 1,
+  status: 0,
   start_date: Date.today,
   end_date: Date.today + 4
 )
@@ -83,7 +83,7 @@ Rental.create!(
 Rental.create!(
   user: anik,
   jewelry: jew5,
-  status: 1,
+  status: 0,
   start_date: Date.today,
   end_date: Date.today + 15
 )

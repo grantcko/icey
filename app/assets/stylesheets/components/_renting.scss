@@ -1,0 +1,37 @@
+.renting {
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0;
+
+  .renting-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .renting-actions {
+    display: flex;
+    align-items: center;
+  }
+  .renting-tag {
+    padding: 5px;
+    background-color: #da7b7b;
+    color: white;
+    border-radius: 8px;
+    font-size: 12p;
+  }
+}
+
+.renting-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+
+  .renting-info-title {
+    font-weight: bolder;
+    font-size: 1.2em;
+  }
+
+  .renting-info-details {
+    font-weight: lighter;
+  }
+}
