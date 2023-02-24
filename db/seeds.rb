@@ -97,11 +97,25 @@ all_users.each { |user| puts user.name}
 
 puts "... created #{User.count} users."
 
-12.times do
+details = [
+  'BLING BLING to make your life SHINE SHINE',
+  'It is great piece of jewelry that you could wear it to special occation',
+  'It is sooooo shine that make everyone eyes go blind!!',
+  'Nice price, Nice Bling, Awesome Bang',
+  'This make you to be the KING/QUEEN of the NIGHT!!',
+  'This make everyone want to get with you!!',
+  'Make friends finally with this piece',
+  'Super high quality',
+  'Passes the dimond tester. 100% LEGIT'
+]
+prices = ['3000','4000', '5000', '8000', '12000', '20000']
+
+
+36.times do
   jewelry = Jewelry.new(
     name: "#{Faker::Cannabis.strain.split.first} #{jewelries.sample}",
-    detail: "A great console",
-    price: 5000
+    detail: details.sample,
+    price: prices.sample
   )
   type = jewelry.name.split.last.downcase.to_sym
 
