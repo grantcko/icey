@@ -1,10 +1,32 @@
-<div class="home-banner">
-  <div>
+<div class="home-banner row">
+  <div class="col-4">
     <div class="container p-5">
       <h1 class="card-title">JEWELRY</h1>
       <h2 class="text-muted"><em>FOR RENT</em></h2>
       <h5>Flash your newest <strong>bling</strong> like you own it.</h5>
     </div>
   </div>
-  <%= image_tag "main-homepage.jpg", class: "necklace-model pt-4" %>
+  <div class="col-8 h-100">
+    <div id="carouselExample" class="carousel slide h-100">
+      <div class="carousel-inner h-100">
+        <div class="carousel-item active">
+          <%= image_tag "https://images.unsplash.com/photo-1543379344-402b42ddbe8a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80", width: "100%", object_fit: "cover" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "https://images.unsplash.com/photo-1600180073523-fa4a48f9b8b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80", width: "100%", object_fit: "cover" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "main-homepage.jpg", width: "100%", object_fit: "cover" %>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
 </div>
