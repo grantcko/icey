@@ -1,6 +1,6 @@
 <div class="card card-trip" style="width: 22.4rem; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
-  <% if jewelry.photo.attached? %>
-    <%= cl_image_tag(jewelry.photo.key) %>
+  <% if jewelry.photos.attached? %>
+    <%= cl_image_tag(jewelry.photos.first.key) %>
   <% else %>
     <%= image_tag('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU') %>
   <% end %>
