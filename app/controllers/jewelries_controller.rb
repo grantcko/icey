@@ -21,9 +21,10 @@ class JewelriesController < ApplicationController
 
   def create
     @jewelry = Jewelry.new(jewelry_params)
+    @jewelry.user = current_user
     authorize @jewelry
     if @jewelry.save
-      redirect_to jewelry_path(@jewelry)
+      redirect_to jewelries_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,6 +33,6 @@ class JewelriesController < ApplicationController
   private
 
   def jewelry_params
-    params.require(:jewelry).permit(:name, :detail, :price, :photo)
+    params.require(:jewelry).permit(:name, :detail, :price, photos: [])
   end
 end
