@@ -1,52 +1,90 @@
 require "open-uri"
+
+photos = {
+  big_chain: [
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212212/big-chain-1_khzbao.jpg',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212212/big-chain-1_khzbao.jpg',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212212/big-chain-3_cmqslx.webp',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212212/big-chain-3_cmqslx.webp'
+  ],
+
+  chain: [
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212212/chain-1_qkqa7n.jpg',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212212/chain-2_elruqu.webp',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212211/chain-3_vdhleo.jpg',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212210/chain-4_svzug8.jpg',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212211/chain-5_knbnlg.jpg'
+  ],
+
+  small_chain: [
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212211/small-chain-1_pl8nhh.jpg',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212211/small-chain-2_nluyri.jpg',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212211/small-chain-3_vtu8ih.webp',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212132/small-chain-4_uycczj.webp'
+  ],
+
+  ring: [
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212211/ring-1_itawev.webp',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212211/ring-2_zhfish.jpg',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212211/ring-3_fbilju.webp',
+  ],
+
+  necklace: [
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212210/necklace-1_dk0fae.jpg',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212210/necklace-2_rimgv8.webp',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212210/necklace-3_ujk0f2.avif',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212210/necklace-4_b9rruf.avif',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212210/necklace-5_htdum1.avif',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212210/necklace-6_ktc4ti.jpg',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212210/necklace-7_qwe2sd.jpg'
+  ],
+
+  bracelet: [
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677212211/bracelet-1_z8nk0n.jpg'
+  ],
+
+  watch: [
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677213338/watch-1_bwqbqi.avif',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677213338/watch-2_y9usyb.avif',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677213338/watch-3_h8tefi.jpg',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677213338/watch-4_psf4un.webp',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677213338/watch-5_vb4ajs.webp',
+    'https://res.cloudinary.com/dw0jec2ls/image/upload/v1677213337/watch-6_qksowa.jpg'
+  ]
+}
+
+jewelries = [
+  'Watch',
+  'Necklace',
+  'Chain',
+  'Ring',
+  'Necklace',
+  'Bracelet'
+]
+
 puts 'Cleaning the DB..'
+
 Rental.destroy_all
 Jewelry.destroy_all
 User.destroy_all
-photo_array = [
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032650/Icey%20Bling-Bling/icey027_k0xkxl.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032650/Icey%20Bling-Bling/icey021_rze1wf.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032650/Icey%20Bling-Bling/icey026_xk85xs.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032629/Icey%20Bling-Bling/icey004_prsqnr.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032604/Icey%20Bling-Bling/icey016_fuklot.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032604/Icey%20Bling-Bling/icey020_u8ayes.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032604/Icey%20Bling-Bling/icey011_k6rcyp.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032603/Icey%20Bling-Bling/icey006_gk53bo.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032603/Icey%20Bling-Bling/icey005_ctrlo8.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032603/Icey%20Bling-Bling/icey010_wakqic.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032603/Icey%20Bling-Bling/icey008_vt1tqe.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032603/Icey%20Bling-Bling/icey009_igzyt2.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032604/Icey%20Bling-Bling/icey017_ocukyi.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032604/Icey%20Bling-Bling/icey019_gxt1tu.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032629/Icey%20Bling-Bling/icey002_hxic1s.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032650/Icey%20Bling-Bling/icey025_yifybo.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032668/Icey%20Bling-Bling/icey031_sup4nm.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032668/Icey%20Bling-Bling/icey032_eway20.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032668/Icey%20Bling-Bling/icey030_ggjvo4.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032650/Icey%20Bling-Bling/icey023_fsmpde.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032650/Icey%20Bling-Bling/icey024_sdiv4x.jpg",
-"https://res.cloudinary.com/dn2mnawil/image/upload/v1677032603/Icey%20Bling-Bling/icey007_inamrs.jpg"
-]
 
-def url_file
-end
 taka = User.create!(
   name: "taka",
   email: "taka@gmail.com",
   password: "123123"
-  )
+)
 
 grant = User.create!(
   name: "grant",
   email: "grant@gmail.com",
   password: "123123"
-  )
+)
 
 tan = User.create!(
   name: "tan",
   email: "tan@gmail.com",
   password: "123123"
-  )
+)
 
 anik = User.create!(
   name: "Anik",
@@ -54,93 +92,46 @@ anik = User.create!(
   password: "123123"
 )
 
+all_users = User.all
+all_users.each { |user| puts user.name}
+
 puts "... created #{User.count} users."
 
-jewelries = ['Watch', 'Gold Watch', 'Diamond Necklace', 'Chain', 'Small Chain', 'Big Chain', 'Ring', 'Necklace', 'Bracelet']
+details = [
+  'BLING BLING to make your life SHINE SHINE',
+  'It is great piece of jewelry that you could wear it to special occation',
+  'It is sooooo shine that make everyone eyes go blind!!',
+  'Nice price, Nice Bling, Awesome Bang',
+  'This make you to be the KING/QUEEN of the NIGHT!!',
+  'This make everyone want to get with you!!',
+  'Make friends finally with this piece',
+  'Super high quality',
+  'Passes the dimond tester. 100% LEGIT'
+]
+prices = ['3000','4000', '5000', '8000', '12000', '20000']
 
-12.times do
-  file = URI.open(photo_array.sample)
-  jewelry = Jewelry.new(name: Faker::Cannabis.strain.split.first + " " + jewelries.sample, detail: "A great console", price: 5000)
-  jewelry.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
-  jewelry.user = grant
+
+36.times do
+  jewelry = Jewelry.new(
+    name: "#{Faker::Cannabis.strain.split.first} #{jewelries.sample}",
+    detail: details.sample,
+    price: prices.sample
+  )
+  type = jewelry.name.split.last.downcase.to_sym
+
+  file_one = URI.open(photos[type].sample)
+  file_two = URI.open(photos[type].sample)
+  file_three = URI.open(photos[type].sample)
+
+  jewelry.photos.attach(io: file_one, filename: "nes.jpg", content_type: "image/jpg")
+  jewelry.photos.attach(io: file_two, filename: "nes.jpg", content_type: "image/jpg")
+  jewelry.photos.attach(io: file_three, filename: "nes.jpg", content_type: "image/jpg")
+
+  jewelry.user = [grant, anik, tan, taka].sample
   jewelry.save
+  puts Jewelry.last.name
 end
 
 puts "... created #{Jewelry.count} jewelries."
 
-6.times do
-  file = URI.open(photo_array.sample)
-  jewelry = Jewelry.new(name: Faker::Cannabis.strain.split.first + " " + jewelries.sample, detail: "A great console", price: 5000)
-  jewelry.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
-  jewelry.user = grant
-  jewelry.save
-  Rental.create!(
-    user: [taka, tan, anik].sample,
-    jewelry: Jewelry.last,
-    status: [0, 1, 2].sample,
-    start_date: Date.today,
-    end_date: Date.today + 20
-  )
-end
-
-6.times do
-  file = URI.open(photo_array.sample)
-  jewelry = Jewelry.new(
-    name: "#{Faker::Cannabis.strain.split.first} #{jewelries.sample}",
-     detail: "A great console",
-     price: 5000
-  )
-  jewelry.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
-  jewelry.user = taka
-  jewelry.save
-  Rental.create!(
-    user: [grant, tan, anik].sample,
-    jewelry: Jewelry.last,
-    status: [0, 1, 2].sample,
-    start_date: Date.today,
-    end_date: Date.today + 20
-  )
-end
-
-6.times do
-  file = URI.open(photo_array.sample)
-  jewelry = Jewelry.new(
-    name: "#{Faker::Cannabis.strain.split.first} #{jewelries.sample}",
-    detail: "A great console",
-    price: 5000
-  )
-  jewelry.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
-  jewelry.user = anik
-  jewelry.save
-  Rental.create!(
-    user: [taka, tan, grant].sample,
-    jewelry: Jewelry.last,
-    status: [0, 1, 2].sample,
-    start_date: Date.today,
-    end_date: Date.today + 20
-  )
-end
-
-6.times do
-  file = URI.open(photo_array.sample)
-
-  jewelry = Jewelry.new(
-    name: "#{Faker::Cannabis.strain.split.first} #{jewelries.sample}",
-    detail: "A great console",
-    price: 5000
-  )
-
-  jewelry.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
-  jewelry.user = tan
-  jewelry.save
-
-  Rental.create!(
-    user: [taka, grant, anik].sample,
-    jewelry: Jewelry.last,
-    status: [0, 1, 2].sample,
-    start_date: Date.today,
-    end_date: Date.today + 20
-  )
-end
-
-puts "... created #{Rental.count} rentals."
+# create 2 manual jewelries that look hella nice
