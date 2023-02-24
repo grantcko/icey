@@ -17,6 +17,7 @@ class JewelriesController < ApplicationController
     @jewelry = Jewelry.find(params[:id])
     authorize @jewelry
     @rental = Rental.new
+    @review = Review.new
   end
 
   def create
