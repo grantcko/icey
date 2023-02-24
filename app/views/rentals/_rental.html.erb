@@ -1,7 +1,7 @@
 <div class="col-6 mt-3">
   <div class="card-product">
-    <% if rental.jewelry.photo.attached? %>
-      <%= cl_image_tag(rental.jewelry.photo.key) %>
+    <% if rental.jewelry.photos.attached? %>
+      <%= cl_image_tag(rental.jewelry.photos.first.key) %>
     <% else %>
       <%= image_tag('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU') %>
     <% end %>

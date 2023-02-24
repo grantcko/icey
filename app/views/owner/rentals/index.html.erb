@@ -1,37 +1,45 @@
 <div class="renting">
-<div class="text-center"><h1>Your Request</h1></div>
+  <div class="text-center">
+    <h1>Your Request</h1>
+  </div>
   <% if @rentals.present? %>
     <% @rentals.each do |rental| %>
       <div class="container w-50 mt-3">
         <div class="card-product">
-          <img src="https://cdn.shopify.com/s/files/1/0009/0724/7677/products/Jay-Z-style-necklace-chain-25mm-cuban-link-1_1932x.jpg?v=1576115600" />
+          <% if @jewelry.photos.attached? %>
+            <%= cl_image_tag(@jewelry.photos.first.key) %>
+          <% else %>
+            <%= image_tag('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU') %>
+          <% end %>
           <div class="card-product-infos m-2">
             <h2><%= rental.jewelry.name %></h2>
             <p><strong>RENTER:</strong> <%= rental.user.name %> <strong>OWNER:</strong> <%= rental.jewelry.user.name %></p>
             <p><em><strong>STATUS:</strong> <%= rental.status %>
-            <p><em><strong>Rented on: </strong> <%= rental.start_date %></em></p>
-            <p><em><strong>Return on: </strong><%= rental.end_date %></em></p>
-            <div class="d-flex p-1">
-              <% if rental.pending? %>
-                <%= simple_form_for rental do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-                  <%= f.submit 'Accept', class: 'btn btn-dark' %>
-                <% end %>
-                <%= simple_form_for rental do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-                  <%= f.submit 'Reject', class: 'btn btn-light ml-3' %>
-                <% end %>
-                <% else %>
-                  <p class='renting-tag'><%= rental.status %></p>
-                <% end %>
+                <p><em><strong>Rented on: </strong> <%= rental.start_date %></em></p>
+                <p><em><strong>Return on: </strong><%= rental.end_date %></em></p>
+                <div class="d-flex p-1">
+                  <% if rental.pending? %>
+                    <%= simple_form_for rental do |f| %>
+                      <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                      <%= f.submit 'Accept', class: 'btn btn-dark' %>
+                    <% end %>
+                    <%= simple_form_for rental do |f| %>
+                      <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                      <%= f.submit 'Reject', class: 'btn btn-light ml-3' %>
+                    <% end %>
+                  <% else %>
+                    <p class='renting-tag'><%= rental.status %></p>
+                  <% end %>
+                </div>
+              </div>
             </div>
           </div>
+        <% end %>
+      <% else %>
+        <div class="container mt-5">
+          <div class="alert alert-dark text-center" role="alert">
+            <p>You don't have any <strong>BLING</strong>, post you own <strong>BLING</strong> BELOW</p>
+            <%= link_to 'POST', new_jewelry_path, class: 'btn btn-dark'  %></div>
         </div>
-      </div>
-    <% end %>
-  <% else %>
-    <div class="container mt-5">
-      <div class="alert alert-dark text-center" role="alert"><p>You don't have any <strong>BLING</strong>, post you own <strong>BLING</strong> BELOW</p><%= link_to 'POST', new_jewelry_path, class: 'btn btn-dark'  %></div>
+      <% end %>
     </div>
-  <% end %>
-</div>
