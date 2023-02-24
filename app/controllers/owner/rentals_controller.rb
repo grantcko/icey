@@ -1,5 +1,7 @@
 class Owner::RentalsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
   def index
-    @rentals = Rental.all
+    @rentals = policy_scope([:owner, Rental])
   end
 end

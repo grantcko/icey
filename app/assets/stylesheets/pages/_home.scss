@@ -1,14 +1,18 @@
 // Specific CSS for your home-page
+.home-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  object-fit: cover;
+}
+
 .home-banner .card {
   background-repeat: no-repeat;
   background-position: left;
   flex-grow: 1;
 }
-.home-banner {
-  margin-top: 5px;
-  height: 80vh;
-  object-fit: cover;
-}
+
 .home-banner .necklace-model {
   width: 50%;
   object-fit: cover;

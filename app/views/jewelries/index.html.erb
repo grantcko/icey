@@ -11,8 +11,12 @@
 <% end %>
   <div class= "cards">
     <% @jewelries.each do |jewelry| %>
-      <div class="card card-trip" style="width: 18rem;">
-        <%= image_tag "https://source.unsplash.com/featured?jewelry&#{rand(500)}" %>
+      <div class="card card-trip" style="width: 18rem; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+        <% if jewelry.photo.attached? %>
+          <%= cl_image_tag(jewelry.photo.key) %>
+        <% else %>
+          <%= image_tag('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU') %>
+        <% end %>
         <div class="card-trip-infos">
           <div>
             <h2><%= link_to jewelry.name, jewelry_path(jewelry), class: 'text-black text-decoration-none'%></h2>
