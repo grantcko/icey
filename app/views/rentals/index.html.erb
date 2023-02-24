@@ -1,24 +1,6 @@
 <div class="container">
   <h1 class="text-center mt-3"><strong>Your Rentals</strong></h1>
   <div class="row">
-    <% @rentals.each do |rental| %>
-      <div class="col-6 mt-3">
-        <div class="card-product">
-          <% if rental.jewelry.photo.attached? %>
-            <%= cl_image_tag(rental.jewelry.photo.key) %>
-          <% else %>
-            <%= image_tag('https://res.cloudinary.com/dn2mnawil/image/upload/v1677032604/Icey%20Bling-Bling/icey014_mtuigj.jpg') %>
-          <% end %>
-          <div class="card-product-infos">
-            <h2><%= rental.jewelry.name %></h2>
-            <p>STATUS: <%= rental.status%></p>
-            <p><em>OWNER: <%= rental.jewelry.user.name %></em></p>
-            <p><strong>Rented on: </strong><%= rental.start_date %></p>
-            <p><strong>Return on: </strong><%= rental.end_date %></p>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    <%= render @rentals %>
   </div>
-</div>
 </div>
