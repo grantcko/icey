@@ -43,8 +43,22 @@
       <%= f.submit 'Rent', class: "btn btn-light"%>
     <% end %>
 </div>
-<br>
-<br>
+<br><br>
+
 <div class="container">
-  <%= render 'reviews/new', jewelry: @jewelry, review: Review.new %>
+  <div data-controller="insert-in-list">
+    <div>
+      <h3>Add a Review</h3>
+      <%= render 'reviews/new', jewelry: @jewelry, review: Review.new %>
+    </div>
+    <div data-insert-in-list-target="list">
+      <% if @jewelry.reviews.any? %>
+        <%= render @jewelry.reviews.order(created_at: :desc) %>
+      <% else %>
+        <br>
+        <p>No reviews yet.</p>
+      <% end %>
+    </div>
+  </div>
 </div>
+<h4><% pluralize @jewelry.reviews.size, "review" %></h4><br>
