@@ -2,12 +2,12 @@
   <div class="d-flex justify-content-between">
     <h1>Post your Jewelry</h1>
     <%= link_to 'Back', jewelries_path, class: 'text-primary text-decoration-none'%></li>
-  </div>
-  <%= simple_form_for @jewelry do |f| %>
-    <%= f.input :name %>
-    <%= f.input :detail %>
-    <%= f.input :price %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit 'Post', class: 'btn btn-primary' %>
-  <% end %>
+</div>
+<%= simple_form_for @jewelry do |f| %>
+  <%= f.input :name %>
+  <%= f.input :detail %>
+  <%= f.input :price %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.submit 'Post', class: 'btn btn-primary' %>
+<% end %>
 </div>
