@@ -17,6 +17,7 @@ class JewelriesController < ApplicationController
     @jewelry = Jewelry.find(params[:id])
     authorize @jewelry
     @rental = Rental.new
+    @review = Review.new
   end
 
   def create
@@ -24,7 +25,7 @@ class JewelriesController < ApplicationController
     @jewelry.user = current_user
     authorize @jewelry
     if @jewelry.save
-      redirect_to jewelries_path
+      redirect_to jewelry_path(@jewelry)
     else
       render :new, status: :unprocessable_entity
     end

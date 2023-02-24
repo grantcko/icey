@@ -1,0 +1,5 @@
+<%= simple_form_for [jewelry, review], data: { action: 'submit->insert-in-list#submit' } do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating, collection: Review::NUMBER.sort, include_blank: false %>
+  <%= f.submit 'Submit', class: 'btn btn-dark mt-2' %>
+<% end %>

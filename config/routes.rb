@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :jewelries, only: %i[index show new create] do
-    resources :rentals, only: %i[create]
+    resources :rentals, only: :create
+    resources :reviews, only: %i[new create]
   end
   resources :rentals, only: %i[index update]
 
