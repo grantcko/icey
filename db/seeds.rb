@@ -89,7 +89,7 @@ taka = User.create!(
   email: "taka@gmail.com",
   password: "123123"
   )
- 
+
   p photo_url = "https://avatars.githubusercontent.com/u/117798839?v=4"
   file = URI.open(photo_url)
   taka.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
@@ -99,7 +99,7 @@ grant = User.create!(
   email: "grant@gmail.com",
   password: "123123"
   )
-  
+
   p photo_url = "https://avatars.githubusercontent.com/u/121933082?v=4"
   file = URI.open(photo_url)
   grant.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
@@ -133,13 +133,13 @@ details = [
 ]
 prices = ['3000','4000', '5000', '8000', '12000', '20000']
 
-12.times do
-  file = URI.open(photo_array.sample)
-  jewelry = Jewelry.new(name: Faker::Cannabis.strain.split.first + " " + jewelries.sample, detail: details.sample, price: prices.sample)
-  jewelry.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
-  jewelry.user = grant
-  jewelry.save
-end
+# 12.times do
+#   file = URI.open(photo_array.sample)
+#   jewelry = Jewelry.new(name: Faker::Cannabis.strain.split.first + " " + jewelries.sample, detail: details.sample, price: prices.sample)
+#   jewelry.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+#   jewelry.user = grant
+#   jewelry.save
+# end
 
 all_users = User.all
 all_users.each { |user| puts user.name}
