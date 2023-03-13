@@ -59,6 +59,7 @@ My teamates and I learned the skills I needed to create this project at Le Wagon
 - [Taka Nakagami](https://www.linkedin.com/in/takaaki-nakagami-a5866154/)
 - [Anik Dutta](https://www.linkedin.com/in/anikdutta/)
 - [Tan Rungthip](https://www.linkedin.com/in/rungthip-c-24937b230/)
+- [Grant Hall](https://www.linkedin.com/in/grant-hall-38584a16b/)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
